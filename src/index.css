@@ -15,6 +15,11 @@ body {
   font-family: "Manrope", sans-serif;
   font-family: "Roboto", sans-serif;
 }
+.container {
+  max-width: 1760px;
+  margin: 0 auto;
+  padding: 0 20px;
+}
 
 img {
   vertical-align: middle;
