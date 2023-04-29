@@ -1,0 +1,19 @@
+.header {
+  background-color: #469264;
+
+  & button {
+    border: none;
+    background-color: transparent;
+  }
+}
+
+.imageWrapper {
+  display: flex;
+  justify-content: space-between;
+
+  // Paddig, margins
+  padding: 25px 0;
+  & img {
+    cursor: pointer;
+  }
+}

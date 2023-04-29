@@ -20,3 +20,9 @@ img {
   vertical-align: middle;
   object-fit: cover;
 }
+
+.container {
+  max-width: 1700px;
+  margin: 0 auto;
+  padding: 0 40px;
+}
