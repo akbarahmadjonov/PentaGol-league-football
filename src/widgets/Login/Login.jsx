@@ -30,11 +30,11 @@ export const Login = () => {
           <h2>Login</h2>
           <form onSubmit={handleSubmit}>
             <div className="user-box">
-              <input type="text" ref={firstRef} name required />
+              <input defaultValue="eve.holt@reqres.in" type="text" ref={firstRef} name required />
               <label>Username</label>
             </div>
             <div className="user-box">
-              <input type="password" ref={pasRef} name required />
+              <input defaultValue="pistol" type="password" ref={pasRef} name required />
               <label>Password</label>
             </div>
             <div className="btns_box">

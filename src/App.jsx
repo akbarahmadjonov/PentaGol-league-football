@@ -9,30 +9,19 @@ function App() {
 	const [count, setCount] = useState(0);
 	const localData = localStorage.getItem('token');
 
-	if (localData) {
-		return (
-			<>
-				<Routes>
-					<Route path='/' element={<Register />} />
-					<Route path='/login' element={<Login />} />
-					<Route path='/admin' element={<Admin />} />
-				</Routes>
-				<Outlet />
-			</>
-		);
-	} else {
-		return (
-			<>
-				<Routes>
-					<Route path='/' element={<Main />} condition={!localData} />
-					<Route path='/article:id' element={<ArticleSinglePage />} />
-					<Route path='/admin' element={<Register />} />
 
+		return (
+			<>
+				<Routes>
+					<Route path='/' element={<Main />}  />
+					<Route path='/article:id' element={<ArticleSinglePage />} />
+					<Route path='/admin' element={<Admin />} />
+           <Route path='/register' element={<Register />} />
+					<Route path='/login' element={<Login />} /> 
 				</Routes>
 				<Outlet />
 			</>
 		);
-	}
 }
 
 
