@@ -5,6 +5,13 @@
   border-radius: 10px;
 }
 
+.matchWrapperDark {
+  margin: 40px 0;
+
+  background-color: #3f534c;
+  border-radius: 10px;
+}
+
 .buttonsWrapper {
   & img {
     margin-right: 16px;
@@ -26,12 +33,36 @@
     font-weight: 700;
     font-size: 16px;
     line-height: 22px;
-    color: #777777;
     cursor: pointer;
 
     &:hover {
       background-color: #e8f4ec;
     }
+  }
+
+  .buttonColor {
+    color: #777777;
+  }
+
+  .buttonDark {
+    color: #fff;
+    background-color: transparent;
+    border: none;
+    padding: 11px 14px 11px 14px;
+
+    // Styles
+    background-color: transparent;
+    border-radius: 10px;
+    border: none;
+    outline: none;
+
+    // Font styles
+    font-family: "Manrope", sans-serif;
+    font-style: normal;
+    font-weight: 700;
+    font-size: 16px;
+    line-height: 22px;
+    cursor: pointer;
   }
 
   .activeBtn {
@@ -95,6 +126,34 @@
   }
 }
 
+.matchCommandsWrapperDark {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+
+  // Padding, margin
+  padding: 10px 20px;
+
+  width: 336px;
+  background-color: #000000;
+  border-radius: 10px 10px 10px 0px;
+
+  & span {
+    font-family: "Roboto";
+    font-style: normal;
+    font-weight: 400;
+    font-size: 16px;
+    line-height: 19px;
+    text-align: right;
+    color: #fff;
+  }
+
+  & .commandName {
+    margin-left: 10px;
+    margin-right: 10px;
+  }
+}
+
 .matchDate {
   // Padding, margin
   padding: 4px 13px;
@@ -114,7 +173,27 @@
   }
 }
 
+.matchDateDark {
+  // Padding, margin
+  padding: 4px 13px;
+
+  background-color: #000000;
+  border-bottom-left-radius: 10px;
+  border-bottom-right-radius: 10px;
+  font-family: "Roboto";
+  font-weight: 400;
+  font-size: 12px;
+  line-height: 14px;
+  text-align: center;
+
+  & .matchTime {
+    font-weight: bold;
+  }
+}
+
 // Media queries
 @media only screen and (max-width: 860px) {
-  
+  .matchCommandsWrapper {
+    width: 100%;
+  }
 }
