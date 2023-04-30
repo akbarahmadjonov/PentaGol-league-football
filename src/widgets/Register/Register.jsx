@@ -41,11 +41,11 @@ export const Register = () => {
               <label>Last name</label>
             </div>
             <div className="user-box">
-              <input type="email" ref={emailRef} />
+              <input type="email" defaultValue="eve.holt@reqres.in" ref={emailRef} />
               <label>Email</label>
             </div>
             <div className="user-box">
-              <input type="password" ref={pasRef} />
+              <input type="password" defaultValue="pistol" ref={pasRef} />
               <label>Password</label>
             </div>
             <div className="btns_box">
