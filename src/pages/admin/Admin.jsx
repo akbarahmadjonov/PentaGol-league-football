@@ -29,31 +29,41 @@ export const Admin = () => {
 			resultB: +resBref.current.value,
 			date: GameDateref.current.value,
 		});
-		axios
-			.post('http://10.10.0.43:2005/game', {
-				ligaName: ligaNameref.current.value,
-				teamA: teamAref.current.value,
-				teamB: teamBref.current.value,
-				resultA: +resAref.current.value,
-				resultB: +resBref.current.value,
-				date: GameDateref.current.value,
-			})
-			.then((data) => {
-				console.log(data);
-			})
-			.catch((err) => console.log(err));
+
+    const gameDate = async () =>{
+      const data = await axios.post(
+        "http://10.10.0.43:2005/news " , {
+          ligaName: ligaNameref?.current.value,
+          teamA: teamAref?.current.value,
+          teamB: teamBref?.current.value,
+          resultA: +resAref?.current.value,
+          resultB: +resBref?.current.value,
+          date: GameDateref?.current.value,
+        });
+      console.log("Addgame",data.data);
+      if (data.status === 200) {
+        console.log(data);
+      }else{
+        console.log(data);
+      }
+    }
+    gameDate()
 	};
+
 	// add game FINISH
+
+
 	// add news START
 	const imgref = useRef();
 	const titleref = useRef();
 	const descriptionref = useRef();
 	const dateref = useRef();
 
+
 	const handleAddNews = (evt) => {
 		evt.preventDefault();
 
-		const formData = new FormData();
+    const formData = new FormData();
 		formData.append('image', imgref.current?.files[0]);
 		formData.append('title', titleref.current?.value);
 		formData.append('description', descriptionref.current?.value);
@@ -65,52 +75,92 @@ export const Admin = () => {
 			date: dateref.current.value,
 		});
 		console.log(formData);
-		axios
-			.post('http://10.10.0.43:2005/news', formData)
-			.then((data) => {
-				console.log(data);
-			})
-			.catch((err) => console.log(err));
-		// fetch("http://localhost:5000/book", {
-		//   method: "POST",
-		//   headers: {
-		//     Authorization: localData,
-		//   },
-		//   body: formData,
-		// })
+
+    const NewsPoster = async () =>{
+      const data = await axios.post(
+        "http://10.10.0.43:2005/news " , formData);
+      console.log("NewsPoster",data.data);
+      if (data.status === 200) {
+        console.log(data);
+      }else{
+        console.log(data);
+      }
+    }
+    NewsPoster()
+
+    const GetNews = async () =>{
+      const data = await axios.get("http://10.10.0.43:2005/news " );
+      console.log("getNews",data.data);
+      if (data.status === 200) {
+        console.log(data);
+      }else{
+        console.log(data);
+      }
+    }
+    GetNews()
+	
 	};
 	// add news FINISHED
-	// -----\
+
+
+	// ADD NEW COMANDS START
 	const NewImgref = useRef();
 	const LigaNameref = useRef();
 	const ComadNameref = useRef();
-
+ 
+  const EndNews = async () => {
+    const data = await axios.get(
+      "http://10.10.0.43:2005/team ");
+    console.log("data.data",data.data);
+    if (data.status === 200) {
+      console.log(data);
+    }else{
+      console.log(data);
+    }
+  };
+  
 	const handleAddNewComad = (evt) => {
 		evt.preventDefault();
 		console.log({
 			ligaName: LigaNameref?.current.value,
 			name: ComadNameref?.current.value,
 		});
-		fetch('http://10.10.0.43:2005/team', { mode: 'cors' })
-			.then((res) => res.json())
-			.then((data) => console.log(data))
-			.catch((err) => console.log(err));
+    EndNews()
+  //   fetch('http://10.10.0.43:2005/team' , {
+  //     method: 'POST',
+  //     headers: {
+  //       // 'Accept': 'application/json',
+  //       'Content-Type': 'application/json',
+  //       'Authorization':"501c8d98-cab6-43ad-9b34-935089803194",
+  //       'Acess-Control-Allow-Headers': true
+  //     },
+  //     body:JSON.stringify({
+  //       ligaName: LigaNameref?.current.value,
+  //       name: ComadNameref?.current.value,
+  //     })
 
-		// axios
-		// 	.post('http://10.10.0.43:2005/team', {
-		// 		ligaName: LigaNameref?.current.value,
-		// 		name: ComadNameref?.current.value,
-		// 	})
-		// 	.then((res) => {
-		// 		console.log(res);
-		// });
-		//     .then((res) => {
-		// res.json()
-		//     }) .then((data) => {
-		//       data
-		//           })
-		//     .catch((err) => console.log(err));
+  // })
+const Postter =async ()=>{
+
+  const data = await axios.post(
+    "http://10.10.0.43:2005/team " ,{
+			ligaName: LigaNameref?.current.value,
+			name: ComadNameref?.current.value,
+		} );
+  console.log("data.data",data.data);
+  if (data.status === 200) {
+    console.log(data);
+  }else{
+    console.log(data);
+  }
+}
+Postter()
+//  LigaNameref?.current.value =""
+//  ComadNameref?.current.value=""
 	};
+
+	// ADD NEW COMANDS START
+
 	return (
 		<>
 			<Header />
