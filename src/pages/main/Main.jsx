@@ -18,6 +18,184 @@ import LastnewsImg1 from "../../shared/assets/images/lastnewsimg1.png";
 import Logo from "../../shared/assets/images/logo.svg";
 import DarkMode from "../../shared/assets/images/dark-mode.svg";
 
+const tabs = [
+  {
+    id: 1,
+    tabTitle: "Italiya. Seriya A",
+    content: (
+      <div className={styles.matchResultWrapper}>
+        <div
+          className={`${
+            theme === "light"
+              ? styles.matchCommandsWrapper
+              : styles.matchCommandsWrapperDark
+          }`}
+        >
+          <div className={styles.club1}>
+            <img src={FcbLogo} alt="command logo" />
+            <span className={styles.commandName}>Barselona</span>
+          </div>
+          <div className={styles.result}>
+            <span className={styles.goalSet}>3</span> :{" "}
+            <span className={styles.goalSet}>0</span>
+          </div>
+          <div className={styles.club}>
+            <span className={styles.commandName}>Liverpool</span>
+            <img src={LiverpoolLogo} alt="command logo" />
+          </div>
+        </div>
+        <span
+          className={`${
+            theme === "light" ? styles.matchDate : styles.matchDateDark
+          } `}
+        >
+          11.11.2021 <span className={styles.matchTime}>23:59</span>
+        </span>
+      </div>
+    ),
+  },
+  {
+    id: 2,
+    tabTitle: "Premier Liga",
+    content: (
+      <div className={styles.matchResultWrapper}>
+        <div
+          className={`${
+            theme === "light"
+              ? styles.matchCommandsWrapper
+              : styles.matchCommandsWrapperDark
+          }`}
+        >
+          <div className={styles.club1}>
+            <img src={FcbLogo} alt="command logo" />
+            <span className={styles.commandName}>Barselona</span>
+          </div>
+          <div className={styles.result}>
+            <span className={styles.goalSet}>3</span> :{" "}
+            <span className={styles.goalSet}>0</span>
+          </div>
+          <div className={styles.club}>
+            <span className={styles.commandName}>Liverpool</span>
+            <img src={LiverpoolLogo} alt="command logo" />
+          </div>
+        </div>
+        <span
+          className={`${
+            theme === "light" ? styles.matchDate : styles.matchDateDark
+          } `}
+        >
+          11.11.2021 <span className={styles.matchTime}>23:59</span>
+        </span>
+      </div>
+    ),
+  },
+  {
+    id: 3,
+    tabTitle: "LaLiga",
+    content: (
+      <div className={styles.matchResultWrapper}>
+        <div
+          className={`${
+            theme === "light"
+              ? styles.matchCommandsWrapper
+              : styles.matchCommandsWrapperDark
+          }`}
+        >
+          <div className={styles.club1}>
+            <img src={FcbLogo} alt="command logo" />
+            <span className={styles.commandName}>Barselona</span>
+          </div>
+          <div className={styles.result}>
+            <span className={styles.goalSet}>3</span> :{" "}
+            <span className={styles.goalSet}>0</span>
+          </div>
+          <div className={styles.club}>
+            <span className={styles.commandName}>Liverpool</span>
+            <img src={LiverpoolLogo} alt="command logo" />
+          </div>
+        </div>
+        <span
+          className={`${
+            theme === "light" ? styles.matchDate : styles.matchDateDark
+          } `}
+        >
+          11.11.2021 <span className={styles.matchTime}>23:59</span>
+        </span>
+      </div>
+    ),
+  },
+  {
+    id: 4,
+    tabTitle: "Bundesliga",
+    content: (
+      <div className={styles.matchResultWrapper}>
+        <div
+          className={`${
+            theme === "light"
+              ? styles.matchCommandsWrapper
+              : styles.matchCommandsWrapperDark
+          }`}
+        >
+          <div className={styles.club1}>
+            <img src={FcbLogo} alt="command logo" />
+            <span className={styles.commandName}>Barselona</span>
+          </div>
+          <div className={styles.result}>
+            <span className={styles.goalSet}>3</span> :{" "}
+            <span className={styles.goalSet}>0</span>
+          </div>
+          <div className={styles.club}>
+            <span className={styles.commandName}>Liverpool</span>
+            <img src={LiverpoolLogo} alt="command logo" />
+          </div>
+        </div>
+        <span
+          className={`${
+            theme === "light" ? styles.matchDate : styles.matchDateDark
+          } `}
+        >
+          11.11.2021 <span className={styles.matchTime}>23:59</span>
+        </span>
+      </div>
+    ),
+  },
+  {
+    id: 5,
+    tabTitle: "Ligue 1",
+    content: (
+      <div className={styles.matchResultWrapper}>
+        <div
+          className={`${
+            theme === "light"
+              ? styles.matchCommandsWrapper
+              : styles.matchCommandsWrapperDark
+          }`}
+        >
+          <div className={styles.club1}>
+            <img src={FcbLogo} alt="command logo" />
+            <span className={styles.commandName}>Barselona</span>
+          </div>
+          <div className={styles.result}>
+            <span className={styles.goalSet}>3</span> :{" "}
+            <span className={styles.goalSet}>0</span>
+          </div>
+          <div className={styles.club}>
+            <span className={styles.commandName}>Liverpool</span>
+            <img src={LiverpoolLogo} alt="command logo" />
+          </div>
+        </div>
+        <span
+          className={`${
+            theme === "light" ? styles.matchDate : styles.matchDateDark
+          } `}
+        >
+          11.11.2021 <span className={styles.matchTime}>23:59</span>
+        </span>
+      </div>
+    ),
+  },
+];
+
 const dataLastNews = [
   {
     id: 1,
@@ -396,247 +574,7 @@ const Main = () => {
             </div>
           </div>
           {/* Match resuls */}
-          <div className={styles.matchHeading}>
-            <div className={styles.matchResultWrapper}>
-              <div
-                className={`${
-                  theme === "light"
-                    ? styles.matchCommandsWrapper
-                    : styles.matchCommandsWrapperDark
-                }`}
-              >
-                <div className={styles.club1}>
-                  <img src={FcbLogo} alt="command logo" />
-                  <span className={styles.commandName}>Barselona</span>
-                </div>
-                <div className={styles.result}>
-                  <span className={styles.goalSet}>3</span> :{" "}
-                  <span className={styles.goalSet}>0</span>
-                </div>
-                <div className={styles.club}>
-                  <span className={styles.commandName}>Liverpool</span>
-                  <img src={LiverpoolLogo} alt="command logo" />
-                </div>
-              </div>
-              <span
-                className={`${
-                  theme === "light" ? styles.matchDate : styles.matchDateDark
-                } `}
-              >
-                11.11.2021 <span className={styles.matchTime}>23:59</span>
-              </span>
-            </div>
-
-            <div className={styles.matchResultWrapper}>
-              <div
-                className={`${
-                  theme === "light"
-                    ? styles.matchCommandsWrapper
-                    : styles.matchCommandsWrapperDark
-                }`}
-              >
-                <div className={styles.club1}>
-                  <img src={FcbLogo} alt="command logo" />
-                  <span className={styles.commandName}>Barselona</span>
-                </div>
-                <div className={styles.result}>
-                  <span className={styles.goalSet}>3</span> :{" "}
-                  <span className={styles.goalSet}>0</span>
-                </div>
-                <div className={styles.club}>
-                  <span className={styles.commandName}>Liverpool</span>
-                  <img src={LiverpoolLogo} alt="command logo" />
-                </div>
-              </div>
-              <span
-                className={`${
-                  theme === "light" ? styles.matchDate : styles.matchDateDark
-                } `}
-              >
-                11.11.2021 <span className={styles.matchTime}>23:59</span>
-              </span>
-            </div>
-
-            <div className={styles.matchResultWrapper}>
-              <div
-                className={`${
-                  theme === "light"
-                    ? styles.matchCommandsWrapper
-                    : styles.matchCommandsWrapperDark
-                }`}
-              >
-                <div className={styles.club1}>
-                  <img src={FcbLogo} alt="command logo" />
-                  <span className={styles.commandName}>Barselona</span>
-                </div>
-                <div className={styles.result}>
-                  <span className={styles.goalSet}>3</span> :{" "}
-                  <span className={styles.goalSet}>0</span>
-                </div>
-                <div className={styles.club}>
-                  <span className={styles.commandName}>Liverpool</span>
-                  <img src={LiverpoolLogo} alt="command logo" />
-                </div>
-              </div>
-              <span
-                className={`${
-                  theme === "light" ? styles.matchDate : styles.matchDateDark
-                } `}
-              >
-                11.11.2021 <span className={styles.matchTime}>23:59</span>
-              </span>
-            </div>
-
-            <div className={styles.matchResultWrapper}>
-              <div
-                className={`${
-                  theme === "light"
-                    ? styles.matchCommandsWrapper
-                    : styles.matchCommandsWrapperDark
-                }`}
-              >
-                <div className={styles.club1}>
-                  <img src={FcbLogo} alt="command logo" />
-                  <span className={styles.commandName}>Barselona</span>
-                </div>
-                <div className={styles.result}>
-                  <span className={styles.goalSet}>3</span> :{" "}
-                  <span className={styles.goalSet}>0</span>
-                </div>
-                <div className={styles.club}>
-                  <span className={styles.commandName}>Liverpool</span>
-                  <img src={LiverpoolLogo} alt="command logo" />
-                </div>
-              </div>
-              <span
-                className={`${
-                  theme === "light" ? styles.matchDate : styles.matchDateDark
-                } `}
-              >
-                11.11.2021 <span className={styles.matchTime}>23:59</span>
-              </span>
-            </div>
-
-            <div className={styles.matchResultWrapper}>
-              <div
-                className={`${
-                  theme === "light"
-                    ? styles.matchCommandsWrapper
-                    : styles.matchCommandsWrapperDark
-                }`}
-              >
-                <div className={styles.club1}>
-                  <img src={FcbLogo} alt="command logo" />
-                  <span className={styles.commandName}>Barselona</span>
-                </div>
-                <div className={styles.result}>
-                  <span className={styles.goalSet}>3</span> :{" "}
-                  <span className={styles.goalSet}>0</span>
-                </div>
-                <div className={styles.club}>
-                  <span className={styles.commandName}>Liverpool</span>
-                  <img src={LiverpoolLogo} alt="command logo" />
-                </div>
-              </div>
-              <span
-                className={`${
-                  theme === "light" ? styles.matchDate : styles.matchDateDark
-                } `}
-              >
-                11.11.2021 <span className={styles.matchTime}>23:59</span>
-              </span>
-            </div>
-
-            <div className={styles.matchResultWrapper}>
-              <div
-                className={`${
-                  theme === "light"
-                    ? styles.matchCommandsWrapper
-                    : styles.matchCommandsWrapperDark
-                }`}
-              >
-                <div className={styles.club1}>
-                  <img src={FcbLogo} alt="command logo" />
-                  <span className={styles.commandName}>Barselona</span>
-                </div>
-                <div className={styles.result}>
-                  <span className={styles.goalSet}>3</span> :{" "}
-                  <span className={styles.goalSet}>0</span>
-                </div>
-                <div className={styles.club}>
-                  <span className={styles.commandName}>Liverpool</span>
-                  <img src={LiverpoolLogo} alt="command logo" />
-                </div>
-              </div>
-              <span
-                className={`${
-                  theme === "light" ? styles.matchDate : styles.matchDateDark
-                } `}
-              >
-                11.11.2021 <span className={styles.matchTime}>23:59</span>
-              </span>
-            </div>
-
-            <div className={styles.matchResultWrapper}>
-              <div
-                className={`${
-                  theme === "light"
-                    ? styles.matchCommandsWrapper
-                    : styles.matchCommandsWrapperDark
-                }`}
-              >
-                <div className={styles.club1}>
-                  <img src={FcbLogo} alt="command logo" />
-                  <span className={styles.commandName}>Barselona</span>
-                </div>
-                <div className={styles.result}>
-                  <span className={styles.goalSet}>3</span> :{" "}
-                  <span className={styles.goalSet}>0</span>
-                </div>
-                <div className={styles.club}>
-                  <span className={styles.commandName}>Liverpool</span>
-                  <img src={LiverpoolLogo} alt="command logo" />
-                </div>
-              </div>
-              <span
-                className={`${
-                  theme === "light" ? styles.matchDate : styles.matchDateDark
-                } `}
-              >
-                11.11.2021 <span className={styles.matchTime}>23:59</span>
-              </span>
-            </div>
-
-            <div className={styles.matchResultWrapper}>
-              <div
-                className={`${
-                  theme === "light"
-                    ? styles.matchCommandsWrapper
-                    : styles.matchCommandsWrapperDark
-                }`}
-              >
-                <div className={styles.club1}>
-                  <img src={FcbLogo} alt="command logo" />
-                  <span className={styles.commandName}>Barselona</span>
-                </div>
-                <div className={styles.result}>
-                  <span className={styles.goalSet}>3</span> :{" "}
-                  <span className={styles.goalSet}>0</span>
-                </div>
-                <div className={styles.club}>
-                  <span className={styles.commandName}>Liverpool</span>
-                  <img src={LiverpoolLogo} alt="command logo" />
-                </div>
-              </div>
-              <span
-                className={`${
-                  theme === "light" ? styles.matchDate : styles.matchDateDark
-                } `}
-              >
-                11.11.2021 <span className={styles.matchTime}>23:59</span>
-              </span>
-            </div>
-          </div>
+          <div className={styles.matchHeading}></div>
           {/* Last Week */}
           <div
             className={`${
