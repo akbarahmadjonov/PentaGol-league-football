@@ -244,6 +244,21 @@ const dataLastNews = [
     date: "12.05.2021 12:54",
   },
 ];
+
+// get news start
+
+const GetNews = async () =>{
+  const data = await axios.get("http://10.10.0.43:2005/news " );
+  console.log("getNews",data.data);
+  if (data.status === 200) {
+    console.log(data);
+  }else{
+    console.log(data);
+  }
+}
+GetNews()
+// get news start
+
 const Main = () => {
   const [activeButton, setActiveButton] = useState(0);
   const [LastnNews, setLastnNews] = useState([]);
