@@ -1,4 +1,4 @@
-import React, { useRef, useState } from "react";
+import React, { useEffect, useRef, useState } from "react";
 import Header from "../../widgets/header/Header";
 import { Footer } from "../../widgets/footer/Footer";
 import article from "./article.scss";
@@ -6,8 +6,12 @@ import ArticleImg from "../../shared/assets/images/articleimg.png";
 import ArticleImg2 from "../../shared/assets/images/main_newSmall.png";
 import LastnewsImg1 from "../../shared/assets/images/lastnewsimg1.png";
 import { Link, useParams } from "react-router-dom";
+import Logo from "../../shared/assets/images/logo.svg";
+import DarkMode from "../../shared/assets/images/dark-mode.svg";
 
 export const ArticleSinglePage = () => {
+  const [theme, setTheme] = useState("light");
+
   const dataLastNews = [
     {
       id: 1,
@@ -244,16 +248,52 @@ export const ArticleSinglePage = () => {
   const handleLastViewAll = () => {
     setviewLastAll(true);
   };
-  return (
-    <>
-      <Header />
 
+  const toggleTheme = () => {
+    if (theme === "light") {
+      setTheme("dark");
+    } else {
+      setTheme("light");
+    }
+  };
+  // Add a classname to the body
+  useEffect(() => {
+    document.body.className = theme;
+  }, [theme]);
+
+  // Scroll to the top on page load
+  useEffect(() => {
+    window.scrollTo({ top: 0, left: 0, behavior: "smooth" });
+  }, []);
+
+  return (
+    <div className={`App ${theme}`}>
+      <div className="header">
+        <div className="container">
+          <div className="imageWrapper">
+            <div>
+              <Link to="/">
+                <img src={Logo} alt="Logo" />
+              </Link>
+            </div>
+            <div>
+              <button onClick={toggleTheme}>
+                <img src={DarkMode} alt="Dark mode" />
+              </button>
+            </div>
+          </div>
+        </div>
+      </div>
       <section className="article_section">
         <div className="container">
           <div className="article_box">
             <div className="article_left_box">
               <p className="inform_datePr">2 soat oldin</p>
-              <h3 className="content_title">
+              <h3
+                className={`${
+                  theme === "light" ? "content_title" : "content_titleDark"
+                }`}
+              >
                 Faqatgina muvaffaqiyatli qur'a Rossiyani Jahon chempionatiga
                 olib boradi: bo'g'inlar oldidagi barcha maketlar
               </h3>
@@ -262,7 +302,11 @@ export const ArticleSinglePage = () => {
                 <img src={ArticleImg} alt="" />
               </div>
 
-              <p className="main_informsPr">
+              <p
+                className={`${
+                  theme === "light" ? "main_informsPr" : "main_informsPrDark"
+                }`}
+              >
                 Ilon Mask (Elon Mask, Tesla va boshqa loyihalar rahbari) bir
                 yarim hafta ichida ikkinchi marta Xitoyning hukmron doiralari va
                 fuqarolariga murojaat qildi. Videoda u ularni ushbu mamlakatda
@@ -290,10 +334,20 @@ export const ArticleSinglePage = () => {
               <div className="main_line"></div>
             </div>
             <div className="article_right_box">
-              <div className="article_right-contents">
+              <div
+                className={`${
+                  theme === "light"
+                    ? "article_right-contents"
+                    : "article_right-contentsDark"
+                }`}
+              >
                 <h4>Asosiy</h4>
                 <div className="right_content">
-                  <p>
+                  <p
+                    className={`${
+                      theme === "light" ? "text-content" : "text-contentDark"
+                    }`}
+                  >
                     Messi Goal.com saytida yilning eng yaxshi futbolchisi deb
                     topildi
                   </p>
@@ -301,7 +355,11 @@ export const ArticleSinglePage = () => {
                   <div className="line"></div>
                 </div>
                 <div className="right_content">
-                  <p>
+                  <p
+                    className={`${
+                      theme === "light" ? "text-content" : "text-contentDark"
+                    }`}
+                  >
                     Messi Goal.com saytida yilning eng yaxshi futbolchisi deb
                     topildi
                   </p>
@@ -309,7 +367,11 @@ export const ArticleSinglePage = () => {
                   <div className="line"></div>
                 </div>
                 <div className="right_content">
-                  <p>
+                  <p
+                    className={`${
+                      theme === "light" ? "text-content" : "text-contentDark"
+                    }`}
+                  >
                     Messi Goal.com saytida yilning eng yaxshi futbolchisi deb
                     topildi
                   </p>
@@ -317,17 +379,31 @@ export const ArticleSinglePage = () => {
                   <div className="line"></div>
                 </div>
                 <div className="right_content">
-                  <p>
+                  <p
+                    className={`${
+                      theme === "light" ? "text-content" : "text-contentDark"
+                    }`}
+                  >
                     Messi Goal.com saytida yilning eng yaxshi futbolchisi deb
                     topildi
                   </p>
                   <span>12.05.2021 12:54</span>
                 </div>
               </div>
-              <div className="article_right-contents right_news2">
+              <div
+                className={`${
+                  theme === "light"
+                    ? "article_right-contents right_news2"
+                    : "article_right-contentsDark"
+                }`}
+              >
                 <h4>Asosiy</h4>
                 <div className="right_content">
-                  <p>
+                  <p
+                    className={`${
+                      theme === "light" ? "text-content" : "text-contentDark"
+                    }`}
+                  >
                     Messi Goal.com saytida yilning eng yaxshi futbolchisi deb
                     topildi
                   </p>
@@ -335,7 +411,11 @@ export const ArticleSinglePage = () => {
                   <div className="line"></div>
                 </div>
                 <div className="right_content">
-                  <p>
+                  <p
+                    className={`${
+                      theme === "light" ? "text-content" : "text-contentDark"
+                    }`}
+                  >
                     Messi Goal.com saytida yilning eng yaxshi futbolchisi deb
                     topildi
                   </p>
@@ -343,7 +423,11 @@ export const ArticleSinglePage = () => {
                   <div className="line"></div>
                 </div>
                 <div className="right_content">
-                  <p>
+                  <p
+                    className={`${
+                      theme === "light" ? "text-content" : "text-contentDark"
+                    }`}
+                  >
                     Messi Goal.com saytida yilning eng yaxshi futbolchisi deb
                     topildi
                   </p>
@@ -351,7 +435,11 @@ export const ArticleSinglePage = () => {
                   <div className="line"></div>
                 </div>
                 <div className="right_content">
-                  <p>
+                  <p
+                    className={`${
+                      theme === "light" ? "text-content" : "text-contentDark"
+                    }`}
+                  >
                     Messi Goal.com saytida yilning eng yaxshi futbolchisi deb
                     topildi
                   </p>
@@ -419,6 +507,6 @@ export const ArticleSinglePage = () => {
       </section>
       {/* Last news section finished */}
       <Footer />
-    </>
+    </div>
   );
 };

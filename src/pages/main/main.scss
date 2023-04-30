@@ -35,6 +35,12 @@
   background: linear-gradient(0deg, rgba(0, 0, 0, 0.3), rgba(0, 0, 0, 0.3)),
     url(../../shared/assets/images/main_news.png);
   border-radius: 10px;
+  transition: all 0.3s ease;
+  cursor: pointer;
+
+  &:hover {
+    opacity: 0.8;
+  }
 
   .newContents_mainCard-content {
     margin-left: 50px;
@@ -86,6 +92,12 @@
   border-radius: 10px;
   background-repeat: no-repeat;
   background-size: cover;
+  cursor: pointer;
+  transition: all 0.3s ease;
+
+  &:hover {
+    opacity: 0.8;
+  }
 }
 
 .newContents_card_contents {
@@ -217,6 +229,12 @@
 }
 
 .comandTableDark {
+  width: 405px;
+  height: 1123px;
+  left: 1305px;
+
+  border-radius: 10px;
+  padding: 0 5px;
   background-color: #222327;
 }
 
@@ -229,6 +247,20 @@
   font-size: 24px;
   line-height: 33px;
   color: #000000;
+  margin-top: 20px;
+  margin-bottom: 25px;
+  margin-left: 15px;
+}
+
+.tabale_titleDark {
+  width: 74px;
+  height: 33px;
+  font-family: "Manrope";
+  font-style: normal;
+  font-weight: 700;
+  font-size: 24px;
+  line-height: 33px;
+  color: #fff;
   margin-top: 20px;
   margin-bottom: 25px;
   margin-left: 15px;
@@ -268,12 +300,22 @@ table tr:nth-child(1) th {
 
 tr:nth-child(even) {
   background-color: #fff;
+  border-radius: 60px;
+
+  &:hover {
+    background-color: rgba(128, 128, 128, 0.467);
+  }
+}
+
+.tr2:nth-child(even) {
+  background-color: #16171b;
   border-radius: 6px;
 
   &:hover {
     background-color: rgba(128, 128, 128, 0.467);
   }
 }
+
 tr:nth-child(even) td {
   padding: 13px 10px;
 }
@@ -452,6 +494,13 @@ tr:nth-child(odd) td {
       color: #898989;
     }
   }
+
+  &:hover {
+    transition: all 0.3s ease-in;
+    margin-top: -50px;
+    box-shadow: rgba(50, 50, 93, 0.25) 0px 13px 27px -5px,
+      rgba(0, 0, 0, 0.3) 0px 8px 16px -8px;
+  }
 }
 .viewAllBtn {
   display: block;
@@ -469,12 +518,17 @@ tr:nth-child(odd) td {
   font-style: normal;
   font-weight: 700;
   font-size: 24px;
+  cursor: pointer;
   line-height: 33px;
   color: #000000;
 
   flex: none;
   order: 0;
   flex-grow: 0;
+
+  &:hover {
+    background: #c9c9c9;
+  }
 }
 
 @media screen and (max-width: 890px) {

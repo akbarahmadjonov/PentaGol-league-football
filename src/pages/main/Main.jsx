@@ -1055,8 +1055,18 @@ const Main = () => {
                 </div>
               </div>
             </div>
-            <div className="comandTable">
-              <h4 className="tabale_title">Jadval</h4>
+            <div
+              className={`${
+                theme === "light" ? "comandTable" : "comandTableDark"
+              }`}
+            >
+              <h4
+                className={`${
+                  theme === "light" ? "tabale_title" : "tabale_titleDark"
+                }`}
+              >
+                Jadval
+              </h4>
 
               <select id="tableSelect">
                 <option value="Italiya. A seriya">Italiya. A seriya</option>
@@ -1072,7 +1082,7 @@ const Main = () => {
                   <th>И</th>
                   <th>О</th>
                 </tr>
-                <tr>
+                <tr className={`${theme === "light" ? "tr" : "tr2"}`}>
                   <td>1</td>
                   <td className="Comand_name">
                     {" "}
@@ -1090,7 +1100,7 @@ const Main = () => {
                   <td>15</td>
                   <td>14</td>
                 </tr>
-                <tr>
+                <tr className={`${theme === "light" ? "tr" : "tr2"}`}>
                   <td>1</td>
                   <td className="Comand_name">
                     {" "}
@@ -1108,7 +1118,7 @@ const Main = () => {
                   <td>15</td>
                   <td>14</td>
                 </tr>
-                <tr>
+                <tr className={`${theme === "light" ? "tr" : "tr2"}`}>
                   <td>1</td>
                   <td className="Comand_name">
                     {" "}
@@ -1126,7 +1136,7 @@ const Main = () => {
                   <td>15</td>
                   <td>14</td>
                 </tr>
-                <tr>
+                <tr className={`${theme === "light" ? "tr" : "tr2"}`}>
                   <td>1</td>
                   <td className="Comand_name">
                     {" "}
@@ -1144,7 +1154,7 @@ const Main = () => {
                   <td>15</td>
                   <td>14</td>
                 </tr>
-                <tr>
+                <tr className={`${theme === "light" ? "tr" : "tr2"}`}>
                   <td>1</td>
                   <td className="Comand_name">
                     {" "}
@@ -1163,7 +1173,7 @@ const Main = () => {
                   <td>14</td>
                 </tr>
 
-                <tr>
+                <tr className={`${theme === "light" ? "tr" : "tr2"}`}>
                   <td>1</td>
                   <td className="Comand_name">
                     {" "}
@@ -1181,7 +1191,7 @@ const Main = () => {
                   <td>15</td>
                   <td>14</td>
                 </tr>
-                <tr>
+                <tr className={`${theme === "light" ? "tr" : "tr2"}`}>
                   <td>1</td>
                   <td className="Comand_name">
                     {" "}
