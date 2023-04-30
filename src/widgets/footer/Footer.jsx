@@ -9,6 +9,7 @@ import Skype from "../../shared/assets/images/footer/Skype.svg";
 import Instagram from "../../shared/assets/images/footer/Instagram.svg";
 import Facebook from "../../shared/assets/images/footer/Facebook.svg";
 import Telegram from "../../shared/assets/images/footer/Telegram.svg";
+import { Link } from "react-router-dom";
 
 export const Footer = () => {
   return (
@@ -18,9 +19,9 @@ export const Footer = () => {
           <div className="container">
             <div className="footerFlex">
               <div className="footerInner">
-                <a href="#">
+                <Link to="/">
                   <img src={Logo} alt="logo" />
-                </a>
+                </Link>
               </div>
               <div className="footerInner">
                 <ul>

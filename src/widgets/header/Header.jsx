@@ -1,7 +1,8 @@
-import React from "react";
+import React, { useState } from "react";
 import style from "./style.scss";
 import Logo from "../../shared/assets/images/logo.svg";
 import DarkMode from "../../shared/assets/images/dark-mode.svg";
+import { Link } from "react-router-dom";
 
 const Header = () => {
   return (
@@ -10,9 +11,9 @@ const Header = () => {
         <div className="container">
           <div className="imageWrapper">
             <div>
-              <a href="#">
+              <Link to="/">
                 <img src={Logo} alt="Logo" />
-              </a>
+              </Link>
             </div>
             <div>
               <button>
@@ -26,4 +27,4 @@ const Header = () => {
   );
 };
 
-export default Header
+export default Header;

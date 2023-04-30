@@ -1,25 +1,25 @@
-import axios from 'axios';
-import React, { useRef, useState } from 'react';
-import { useNavigate } from 'react-router-dom';
-import Header from '../../widgets/header/Header';
-import { Login } from '../../widgets/Login/Login';
-import { AddNewsModal, Modal } from '../../widgets/Modal/Modal';
-import { Register } from '../../widgets/Register/Register';
-import admin from './admin.scss';
+import axios from "axios";
+import React, { useRef, useState } from "react";
+import { useNavigate } from "react-router-dom";
+import Header from "../../widgets/header/Header";
+import { Login } from "../../widgets/Login/Login";
+import { AddNewsModal, Modal } from "../../widgets/Modal/Modal";
+import { Register } from "../../widgets/Register/Register";
+import admin from "./admin.scss";
 export const Admin = () => {
-	const [homeModal, setHomeModal] = useState(false);
-	const [addNewsModal, setAddNewsModal] = useState(false);
-	const [addNewComad, setaddNewComad] = useState(false);
+  const [homeModal, setHomeModal] = useState(false);
+  const [addNewsModal, setAddNewsModal] = useState(false);
+  const [addNewComad, setaddNewComad] = useState(false);
 
-	// add game START
-	const ligaNameref = useRef();
-	const teamAref = useRef();
-	const teamBref = useRef();
-	const resAref = useRef();
-	const resBref = useRef();
-	const GameDateref = useRef();
-	const handleSubmit = (evt) => {
-		evt.preventDefault();
+  // add game START
+  const ligaNameref = useRef();
+  const teamAref = useRef();
+  const teamBref = useRef();
+  const resAref = useRef();
+  const resBref = useRef();
+  const GameDateref = useRef();
+  const handleSubmit = (evt) => {
+    evt.preventDefault();
 
 		console.log({
 			ligaName: ligaNameref.current.value,
@@ -207,111 +207,111 @@ Postter()
 				</form>
 			</Modal>
 
-			<AddNewsModal
-				modal={addNewsModal}
-				setModal={setAddNewsModal}
-				title='Add News'
-			>
-				<form onSubmit={handleAddNews}>
-					<input
-						type='file'
-						placeholder='Enter ImgFile'
-						ref={imgref}
-						className='myInput'
-					/>
-					<input
-						type='text'
-						placeholder='Enter news title '
-						ref={titleref}
-						className='myInput'
-					/>
-					<input
-						type='text'
-						placeholder='Enter news discreption'
-						ref={descriptionref}
-						className='myInput'
-					/>
+      <AddNewsModal
+        modal={addNewsModal}
+        setModal={setAddNewsModal}
+        title="Add News"
+      >
+        <form onSubmit={handleAddNews}>
+          <input
+            type="file"
+            placeholder="Enter ImgFile"
+            ref={imgref}
+            className="myInput"
+          />
+          <input
+            type="text"
+            placeholder="Enter news title "
+            ref={titleref}
+            className="myInput"
+          />
+          <input
+            type="text"
+            placeholder="Enter news discreption"
+            ref={descriptionref}
+            className="myInput"
+          />
 
-					<input
-						type='date'
-						placeholder='Enter Date'
-						ref={dateref}
-						className='myInput'
-					/>
+          <input
+            type="date"
+            placeholder="Enter Date"
+            ref={dateref}
+            className="myInput"
+          />
 
-					<button type='submit' className='add_btn'>
-						Send
-					</button>
-				</form>
-			</AddNewsModal>
+          <button type="submit" className="add_btn">
+            Send
+          </button>
+        </form>
+      </AddNewsModal>
 
-			<AddNewsModal
-				modal={addNewComad}
-				setModal={setaddNewComad}
-				title='Add New Comand'
-			>
-				<form onSubmit={handleAddNewComad}>
-					{/* <input type="file" placeholder='Enter comand ImgFile' ref={imgref} className='myInput' /> */}
-					<input
-						type='text'
-						placeholder='Enter  conmad name '
-						ref={ComadNameref}
-						className='myInput'
-					/>
-					<input
-						type='text'
-						placeholder='Enter Liga Name'
-						ref={LigaNameref}
-						className='myInput'
-					/>
+      <AddNewsModal
+        modal={addNewComad}
+        setModal={setaddNewComad}
+        title="Add New Comand"
+      >
+        <form onSubmit={handleAddNewComad}>
+          {/* <input type="file" placeholder='Enter comand ImgFile' ref={imgref} className='myInput' /> */}
+          <input
+            type="text"
+            placeholder="Enter  conmad name "
+            ref={ComadNameref}
+            className="myInput"
+          />
+          <input
+            type="text"
+            placeholder="Enter Liga Name"
+            ref={LigaNameref}
+            className="myInput"
+          />
 
-					<button type='submit' className='add_btn'>
-						Send
-					</button>
-				</form>
-			</AddNewsModal>
-			<div className='main_box'>
-				<div className='verticalNav'>
-					<div className='btn_wrapper'>
-						<button
-							className='add_game admin_btns'
-							onClick={() => setHomeModal(true)}
-						>
-							{' '}
-							Add Games{' '}
-						</button>
-					</div>
-					<div className='btn_wrapper'>
-						<button
-							className='add_news admin_btns'
-							onClick={() => setAddNewsModal(true)}
-						>
-							{' '}
-							Add News{' '}
-						</button>
-					</div>
-					<div className='btn_wrapper'>
-						<button
-							className='add_game admin_btns '
-							onClick={() => setaddNewComad(true)}
-						>
-							{' '}
-							Add new Comad{' '}
-						</button>
-					</div>
-				</div>
-				<div className='main_part'>
-					<p>
-						Lorem ipsum dolor sit amet consectetur, adipisicing elit. Provident
-						officia praesentium veritatis deserunt. Molestiae tempora, accusamus
-						voluptates asperiores error commodi praesentium ullam? Consectetur
-						eius distinctio ut est voluptatibus ratione illum excepturi!
-						Voluptatum laudantium aliquam, dolorum labore est ducimus in iusto
-						blanditiis, enim nostrum voluptate quidem ab. Laudantium quod
-						eligendi cum.
-					</p>
-				</div>
-			</div>
-		</>
-	);
+          <button type="submit" className="add_btn">
+            Send
+          </button>
+        </form>
+      </AddNewsModal>
+      <div className="main_box">
+        <div className="verticalNav">
+          <div className="btn_wrapper">
+            <button
+              className="add_game admin_btns"
+              onClick={() => setHomeModal(true)}
+            >
+              {" "}
+              Add Games{" "}
+            </button>
+          </div>
+          <div className="btn_wrapper">
+            <button
+              className="add_news admin_btns"
+              onClick={() => setAddNewsModal(true)}
+            >
+              {" "}
+              Add News{" "}
+            </button>
+          </div>
+          <div className="btn_wrapper">
+            <button
+              className="add_game admin_btns "
+              onClick={() => setaddNewComad(true)}
+            >
+              {" "}
+              Add new Comad{" "}
+            </button>
+          </div>
+        </div>
+        <div className="main_part">
+          <p>
+            Lorem ipsum dolor sit amet consectetur, adipisicing elit. Provident
+            officia praesentium veritatis deserunt. Molestiae tempora, accusamus
+            voluptates asperiores error commodi praesentium ullam? Consectetur
+            eius distinctio ut est voluptatibus ratione illum excepturi!
+            Voluptatum laudantium aliquam, dolorum labore est ducimus in iusto
+            blanditiis, enim nostrum voluptate quidem ab. Laudantium quod
+            eligendi cum.
+          </p>
+        </div>
+      </div>
+    </>
+  );
 };
