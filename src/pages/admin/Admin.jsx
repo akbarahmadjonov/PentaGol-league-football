@@ -1,16 +1,20 @@
 import axios from "axios";
 import React, { useRef, useState } from "react";
-import { useNavigate } from "react-router-dom";
+import { Link, useNavigate } from "react-router-dom";
 import Header from "../../widgets/header/Header";
 import { Login } from "../../widgets/Login/Login";
 import { AddNewsModal, Modal } from "../../widgets/Modal/Modal";
 import { Register } from "../../widgets/Register/Register";
 import admin from "./admin.scss";
+import LastnewsImg1 from "../../shared/assets/images/lastnewsimg1.png";
 export const Admin = () => {
   const [homeModal, setHomeModal] = useState(false);
   const [addNewsModal, setAddNewsModal] = useState(false);
   const [addNewComad, setaddNewComad] = useState(false);
+  const [getNews, setgetNews] = useState([]);
+  const [getInformNews, setgetInformNews] = useState([]);
 
+console.log(getNews);
   // add game START
   const ligaNameref = useRef();
   const teamAref = useRef();
@@ -69,7 +73,7 @@ export const Admin = () => {
 		formData.append('description', descriptionref.current?.value);
 		formData.append('date', dateref.current?.value);
 		console.log({
-			img: imgref.current.value,
+			img: imgref.current.files[0],
 			title: titleref.current.value,
 			description: descriptionref.current.value,
 			date: dateref.current.value,
@@ -78,7 +82,12 @@ export const Admin = () => {
 
     const NewsPoster = async () =>{
       const data = await axios.post(
-        "http://10.10.0.43:2005/news " , formData);
+        "http://10.10.0.43:2005/news " , {
+          img: imgref.current.files[0],
+          title: titleref.current.value,
+          description: descriptionref.current.value,
+          date: dateref.current.value,
+        });
       console.log("NewsPoster",data.data);
       if (data.status === 200) {
         console.log(data);
@@ -91,6 +100,7 @@ export const Admin = () => {
     const GetNews = async () =>{
       const data = await axios.get("http://10.10.0.43:2005/news " );
       console.log("getNews",data.data);
+      setgetInformNews(data.data.data)
       if (data.status === 200) {
         console.log(data);
       }else{
@@ -112,6 +122,7 @@ export const Admin = () => {
     const data = await axios.get(
       "http://10.10.0.43:2005/team ");
     console.log("data.data",data.data);
+    setgetNews(data.data.data)
     if (data.status === 200) {
       console.log(data);
     }else{
@@ -301,15 +312,48 @@ Postter()
           </div>
         </div>
         <div className="main_part">
-          <p>
-            Lorem ipsum dolor sit amet consectetur, adipisicing elit. Provident
-            officia praesentium veritatis deserunt. Molestiae tempora, accusamus
-            voluptates asperiores error commodi praesentium ullam? Consectetur
-            eius distinctio ut est voluptatibus ratione illum excepturi!
-            Voluptatum laudantium aliquam, dolorum labore est ducimus in iusto
-            blanditiis, enim nostrum voluptate quidem ab. Laudantium quod
-            eligendi cum.
-          </p>
+        
+        {
+    getNews.length ?(
+                <div className="leatestNews_card_box">
+                  {getNews.map((el) => (
+                    <Link to={`/article:` + el.id} className="leatestNews_card">
+                      <div className="newsCard_top">
+                        <img src={LastnewsImg1} alt="" />
+                      </div>
+                      <div className="newsCard_body">
+                        <h4>name: {el.name}</h4>
+                        <p> ligaName:{el.ligaName}</p>
+                        <p> goals{el.goals}</p>
+                      </div>
+                    </Link>
+                  ))}
+                </div>
+              ) : "komadalar haqida malumotlar yoq"
+}
+
+<h2 className="">Yangiliklar</h2>
+
+{/* getInformNews */}
+{
+    getInformNews.length ?(
+                <div className="leatestNews_card_box">
+                  {getInformNews.map((el) => (
+                    <Link to={`/article:` + el.id} className="leatestNews_card">
+                      <div className="newsCard_top">
+                        <img src={LastnewsImg1} alt="" />
+                      </div>
+                      <div className="newsCard_body">
+                        <h4>name: {el.name}</h4>
+                        <p> ligaName:{el.ligaName}</p>
+                        <p> goals{el.goals}</p>
+                      </div>
+                    </Link>
+                  ))}
+                </div>
+              ) : "yangiliklar yoq"
+}
+
         </div>
       </div>
     </>
