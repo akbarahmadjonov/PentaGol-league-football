@@ -1,0 +1,38 @@
+
+.main_box{
+    display: flex;
+    align-items: flex-start;
+    justify-content: space-between;
+    width: 100%;
+}
+
+.verticalNav{
+    width: 20%;
+    background: #469264b4;
+    height:calc(100vh - 104px) ;
+}
+.main_part{
+    width: 80%;
+    background-color: teal;
+    height: auto;
+}
+.btn_wrapper{
+    width: 100%;
+    margin: 0 auto;
+}
+
+.admin_btns{
+    width: 120px;
+    height: 40px;
+    border-radius: 10px;
+    border: 1px solid teal;
+    color: black;
+    background-color: transparent;
+    transition:  all  .3s;
+    cursor: pointer;
+    &:hover{
+
+        background-color: teal;
+        color: #fff;
+    }
+}

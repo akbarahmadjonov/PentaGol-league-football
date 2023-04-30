@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React, { useRef, useState } from "react";
 import { Link } from "react-router-dom";
 import Header from "../../widgets/header/Header";
 import styles from "./style.module.scss";
@@ -9,17 +9,255 @@ import Frame4 from "../../shared/assets/images/frame4.svg";
 import Frame5 from "../../shared/assets/images/frame5.svg";
 import FcbLogo from "../../shared/assets/images/commands/fcb.svg";
 import LiverpoolLogo from "../../shared/assets/images/commands/liverpool.svg";
-
+// import { Link } from "react-router-dom";
+import { NavLink } from "react-router-dom";
 import main from "./main.scss";
 import ComandMark from "../../shared/assets/images/barsa_marker.png";
-import { Footer } from "../../widgets/footer/Footer";
+import LastnewsImg1  from '../../shared/assets/images/lastnewsimg1.png'
+const dataLastNews =[
+  {
+    id:1,
+    img:LastnewsImg1,
+    title: 'Zidan "Manchester Yunayted"ga Premer-ligaga tayyor emasligini aytdi',
+    pr:'Zidan "Manchester Yunayted"ga Premer-ligaga tayyor emasligini aytdi',
+    date: "12.05.2021 12:54"
 
+  },
+  {
+    id:2,
+    img:LastnewsImg1,
+    title: 'Zidan "Manchester Yunayted"ga Premer-ligaga tayyor emasligini aytdi',
+    pr:'Zidan "Manchester Yunayted"ga Premer-ligaga tayyor emasligini aytdi',
+    date: "12.05.2021 12:54"
+
+  },
+  {
+    id:3,
+    img:LastnewsImg1,
+    title: 'Zidan "Manchester Yunayted"ga Premer-ligaga tayyor emasligini aytdi',
+    pr:'Zidan "Manchester Yunayted"ga Premer-ligaga tayyor emasligini aytdi',
+    date: "12.05.2021 12:54"
+
+  },
+  {
+    id:4,
+    img:LastnewsImg1,
+    title: 'Zidan "Manchester Yunayted"ga Premer-ligaga tayyor emasligini aytdi',
+    pr:'Zidan "Manchester Yunayted"ga Premer-ligaga tayyor emasligini aytdi',
+    date: "12.05.2021 12:54"
+
+  },
+  {
+    id:5,
+    img:LastnewsImg1,
+    title: 'Zidan "Manchester Yunayted"ga Premer-ligaga tayyor emasligini aytdi',
+    pr:'Zidan "Manchester Yunayted"ga Premer-ligaga tayyor emasligini aytdi',
+    date: "12.05.2021 12:54"
+
+  },
+  {
+    id:6,
+    img:LastnewsImg1,
+    title: 'Zidan "Manchester Yunayted"ga Premer-ligaga tayyor emasligini aytdi',
+    pr:'Zidan "Manchester Yunayted"ga Premer-ligaga tayyor emasligini aytdi',
+    date: "12.05.2021 12:54"
+
+  },
+  {
+    id:7,
+    img:LastnewsImg1,
+    title: 'Zidan "Manchester Yunayted"ga Premer-ligaga tayyor emasligini aytdi',
+    pr:'Zidan "Manchester Yunayted"ga Premer-ligaga tayyor emasligini aytdi',
+    date: "12.05.2021 12:54"
+
+  },
+  {
+    id:8,
+    img:LastnewsImg1,
+    title: 'Zidan "Manchester Yunayted"ga Premer-ligaga tayyor emasligini aytdi',
+    pr:'Zidan "Manchester Yunayted"ga Premer-ligaga tayyor emasligini aytdi',
+    date: "12.05.2021 12:54"
+
+  },
+  {
+    id:9,
+    img:LastnewsImg1,
+    title: 'Zidan "Manchester Yunayted"ga Premer-ligaga tayyor emasligini aytdi',
+    pr:'Zidan "Manchester Yunayted"ga Premer-ligaga tayyor emasligini aytdi',
+    date: "12.05.2021 12:54"
+
+  },
+  {
+    id:10,
+    img:LastnewsImg1,
+    title: 'Zidan "Manchester Yunayted"ga Premer-ligaga tayyor emasligini aytdi',
+    pr:'Zidan "Manchester Yunayted"ga Premer-ligaga tayyor emasligini aytdi',
+    date: "12.05.2021 12:54"
+
+  },
+  {
+    id:11,
+    img:LastnewsImg1,
+    title: 'Zidan "Manchester Yunayted"ga Premer-ligaga tayyor emasligini aytdi',
+    pr:'Zidan "Manchester Yunayted"ga Premer-ligaga tayyor emasligini aytdi',
+    date: "12.05.2021 12:54"
+
+  },
+  {
+    id:12,
+    img:LastnewsImg1,
+    title: 'Zidan "Manchester Yunayted"ga Premer-ligaga tayyor emasligini aytdi',
+    pr:'Zidan "Manchester Yunayted"ga Premer-ligaga tayyor emasligini aytdi',
+    date: "12.05.2021 12:54"
+
+  },
+  {
+    id:9,
+    img:LastnewsImg1,
+    title: 'Zidan "Manchester Yunayted"ga Premer-ligaga tayyor emasligini aytdi',
+    pr:'Zidan "Manchester Yunayted"ga Premer-ligaga tayyor emasligini aytdi',
+    date: "12.05.2021 12:54"
+
+  },
+  {
+    id:10,
+    img:LastnewsImg1,
+    title: 'Zidan "Manchester Yunayted"ga Premer-ligaga tayyor emasligini aytdi',
+    pr:'Zidan "Manchester Yunayted"ga Premer-ligaga tayyor emasligini aytdi',
+    date: "12.05.2021 12:54"
+
+  },
+  {
+    id:11,
+    img:LastnewsImg1,
+    title: 'Zidan "Manchester Yunayted"ga Premer-ligaga tayyor emasligini aytdi',
+    pr:'Zidan "Manchester Yunayted"ga Premer-ligaga tayyor emasligini aytdi',
+    date: "12.05.2021 12:54"
+
+  },
+  {
+    id:12,
+    img:LastnewsImg1,
+    title: 'Zidan "Manchester Yunayted"ga Premer-ligaga tayyor emasligini aytdi',
+    pr:'Zidan "Manchester Yunayted"ga Premer-ligaga tayyor emasligini aytdi',
+    date: "12.05.2021 12:54"
+
+  },
+  {
+    id:9,
+    img:LastnewsImg1,
+    title: 'Zidan "Manchester Yunayted"ga Premer-ligaga tayyor emasligini aytdi',
+    pr:'Zidan "Manchester Yunayted"ga Premer-ligaga tayyor emasligini aytdi',
+    date: "12.05.2021 12:54"
+
+  },
+  {
+    id:10,
+    img:LastnewsImg1,
+    title: 'Zidan "Manchester Yunayted"ga Premer-ligaga tayyor emasligini aytdi',
+    pr:'Zidan "Manchester Yunayted"ga Premer-ligaga tayyor emasligini aytdi',
+    date: "12.05.2021 12:54"
+
+  },
+  {
+    id:11,
+    img:LastnewsImg1,
+    title: 'Zidan "Manchester Yunayted"ga Premer-ligaga tayyor emasligini aytdi',
+    pr:'Zidan "Manchester Yunayted"ga Premer-ligaga tayyor emasligini aytdi',
+    date: "12.05.2021 12:54"
+
+  },
+  {
+    id:12,
+    img:LastnewsImg1,
+    title: 'Zidan "Manchester Yunayted"ga Premer-ligaga tayyor emasligini aytdi',
+    pr:'Zidan "Manchester Yunayted"ga Premer-ligaga tayyor emasligini aytdi',
+    date: "12.05.2021 12:54"
+
+  },
+  {
+    id:9,
+    img:LastnewsImg1,
+    title: 'Zidan "Manchester Yunayted"ga Premer-ligaga tayyor emasligini aytdi',
+    pr:'Zidan "Manchester Yunayted"ga Premer-ligaga tayyor emasligini aytdi',
+    date: "12.05.2021 12:54"
+
+  },
+  {
+    id:10,
+    img:LastnewsImg1,
+    title: 'Zidan "Manchester Yunayted"ga Premer-ligaga tayyor emasligini aytdi',
+    pr:'Zidan "Manchester Yunayted"ga Premer-ligaga tayyor emasligini aytdi',
+    date: "12.05.2021 12:54"
+
+  },
+  {
+    id:11,
+    img:LastnewsImg1,
+    title: 'Zidan "Manchester Yunayted"ga Premer-ligaga tayyor emasligini aytdi',
+    pr:'Zidan "Manchester Yunayted"ga Premer-ligaga tayyor emasligini aytdi',
+    date: "12.05.2021 12:54"
+
+  },
+  {
+    id:12,
+    img:LastnewsImg1,
+    title: 'Zidan "Manchester Yunayted"ga Premer-ligaga tayyor emasligini aytdi',
+    pr:'Zidan "Manchester Yunayted"ga Premer-ligaga tayyor emasligini aytdi',
+    date: "12.05.2021 12:54"
+
+  },
+  {
+    id:9,
+    img:LastnewsImg1,
+    title: 'Zidan "Manchester Yunayted"ga Premer-ligaga tayyor emasligini aytdi',
+    pr:'Zidan "Manchester Yunayted"ga Premer-ligaga tayyor emasligini aytdi',
+    date: "12.05.2021 12:54"
+
+  },
+  {
+    id:10,
+    img:LastnewsImg1,
+    title: 'Zidan "Manchester Yunayted"ga Premer-ligaga tayyor emasligini aytdi',
+    pr:'Zidan "Manchester Yunayted"ga Premer-ligaga tayyor emasligini aytdi',
+    date: "12.05.2021 12:54"
+
+  },
+  {
+    id:11,
+    img:LastnewsImg1,
+    title: 'Zidan "Manchester Yunayted"ga Premer-ligaga tayyor emasligini aytdi',
+    pr:'Zidan "Manchester Yunayted"ga Premer-ligaga tayyor emasligini aytdi',
+    date: "12.05.2021 12:54"
+
+  },
+  {
+    id:12,
+    img:LastnewsImg1,
+    title: 'Zidan "Manchester Yunayted"ga Premer-ligaga tayyor emasligini aytdi',
+    pr:'Zidan "Manchester Yunayted"ga Premer-ligaga tayyor emasligini aytdi',
+    date: "12.05.2021 12:54"
+
+  },
+
+]
 const Main = () => {
   const [activeButton, setActiveButton] = useState(0);
-
+  const [LastnNews, setLastnNews] = useState([]);
+  const [viewAll, setviewAll] = useState(false);
+  const [viewLastAll, setviewLastAll] = useState(false);
+const viewAllBtnRef = useRef();
   const handleButtonClick = (index) => {
     setActiveButton(index);
   };
+
+  const handleLastViewAll = ()=>{
+    setviewLastAll(true)
+  }
+  const handleViewAll = ()=>{
+    setviewAll(true)
+  }
+
 
   return (
     <>
@@ -437,6 +675,8 @@ const Main = () => {
           </div>
         </section>
       </div>
+      {/* News Table section started */}
+
       <section className="newsTable">
         <div className="container ">
           <div className="newsTable_box">
@@ -659,29 +899,99 @@ const Main = () => {
           </div>
         </div>
       </section>
+      {/* News Table section finished */}
+
+      {/* Last news section started */}
       <section className="leatestNews_section">
         <div className="container">
           <div className="leatestNews_box">
             <div className="last_news">
-              {" "}
-              <span>So'ngi yangiliklar</span>{" "}
+              <span>So'ngi yangiliklar</span>
             </div>
-            <div className="leatestNews_card_box">
-              <div className="leatestNews_card">
+      {
+        dataLastNews.length ? (      dataLastNews.length > 20  && viewLastAll ?  ( 
+           <div className="leatestNews_card_box">
+           {dataLastNews.slice(0).map(el => 
+            <Link to={`/article:`+el.id }className="leatestNews_card">
                 <div className="newsCard_top">
-                  <img src="" alt="" />
+                  <img src={el.img} alt="" />
                 </div>
                 <div className="newsCard_body">
-                  <h4></h4>
-                  <p></p>
-                  <span></span>
+                  <h4>{el.title}</h4>
+                  <p>{el.pr}</p>
+                  <span>{el.date}</span>
                 </div>
-              </div>
-            </div>
+              </Link>)}
+             
+            </div>):  <div className="leatestNews_card_box">
+           {dataLastNews.slice(0 , 20).map(el => 
+            <Link to={`/article:`+el.id }className="leatestNews_card">
+                <div className="newsCard_top">
+                  <img src={el.img} alt="" />
+                </div>
+                <div className="newsCard_body">
+                  <h4>{el.title}</h4>
+                  <p>{el.pr}</p>
+                  <span>{el.date}</span>
+                </div>
+              </Link>)}
+             
+            </div> ) : "Yangiliklar yo'q"
+  
+      }
+    
+    <button className="viewAllBtn" ref={viewAllBtnRef} onClick={handleLastViewAll} >  Barchasi ko’rish </button>
+
+          
           </div>
         </div>
       </section>
-      <Footer/>
+      {/* Last news section finished */}
+  {/*All news section started */}
+  <section className="allNews_section ">
+        <div className="container">
+          <div className="leatestNews_box">
+            <div className="last_news">
+              <span>Barcha yangiliklar</span>
+            </div>
+      {
+        dataLastNews.length ? (      dataLastNews.length > 12  && viewAll ?  ( 
+           <div className="leatestNews_card_box">
+           {dataLastNews.slice(0).map(el => 
+            <Link to={`/article:`+el.id } className="leatestNews_card">
+                <div className="newsCard_top">
+                  <img src={el.img} alt="" />
+                </div>
+                <div className="newsCard_body">
+                  <h4>{el.title}</h4>
+                  <p>{el.pr}</p>
+                  <span>{el.date}</span>
+                </div>
+              </Link>)}
+             
+            </div>):  <div className="leatestNews_card_box">
+           {dataLastNews.slice(0 , 12).map(el =>  <Link  to={`/article:`+el.id } className="leatestNews_card">
+                <div className="newsCard_top">
+                  <img src={el.img} alt="" />
+                </div>
+                <div className="newsCard_body">
+                  <h4>{el.title}</h4>
+                  <p>{el.pr}</p>
+                  <span>{el.date}</span>
+                </div>
+              </Link>)}
+             
+            </div> ) : "Yangiliklar yo'q"
+  
+      }
+    
+    <button className="viewAllBtn" ref={viewAllBtnRef} onClick={handleViewAll} >  Barchasi ko’rish </button>
+
+          
+          </div>
+        </div>
+      </section>
+      {/*All news section finished */}
     </>
   );
 };
