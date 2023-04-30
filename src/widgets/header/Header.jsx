@@ -10,7 +10,9 @@ const Header = () => {
         <div className="container">
           <div className="imageWrapper">
             <div>
-              <img src={Logo} alt="Logo" />
+              <a href="#">
+                <img src={Logo} alt="Logo" />
+              </a>
             </div>
             <div>
               <button>

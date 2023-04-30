@@ -12,6 +12,7 @@ import LiverpoolLogo from "../../shared/assets/images/commands/liverpool.svg";
 
 import main from "./main.scss";
 import ComandMark from "../../shared/assets/images/barsa_marker.png";
+import { Footer } from "../../widgets/footer/Footer";
 
 const Main = () => {
   const [activeButton, setActiveButton] = useState(0);
@@ -680,6 +681,7 @@ const Main = () => {
           </div>
         </div>
       </section>
+      <Footer/>
     </>
   );
 };
